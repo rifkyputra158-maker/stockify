@@ -11,7 +11,7 @@ class StockTransaction extends Model
     protected $fillable = ['product_id', 'user_id', 'type', 'quantity', 'date', 'status', 'notes'];
 
 public function product()
-{
+{   
     return $this->belongsTo(Product::class);
 }
 
