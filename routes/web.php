@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -12,15 +13,31 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::name('index-practice')->get('/', function () {
-    return view('pages.practice.index');
+
+Route::get('/', function () {
+    return redirect()->route('login');
 });
 
-Route::name('practice.')->group(function () {
-    Route::name('first')->get('practice/1', function () {
-        return view('pages.practice.1');
-    });
-    Route::name('second')->get('practice/2', function () {
-        return view('pages.practice.2');
-    });
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+Route::middleware(['auth', 'role:admin'])->group(function () {
+    // nanti diisi route khusus admin: kelola user, kategori, supplier
+});
+
+Route::middleware(['auth', 'role:admin,manajer_gudang'])->group(function () {
+    // route yang boleh diakses admin & manajer gudang
+});
+
+Route::middleware(['auth', 'role:admin,manajer_gudang,staff_gudang'])->group(function () {
+    // route yang boleh diakses semua role login
+});
+
+require __DIR__.'/auth.php';
