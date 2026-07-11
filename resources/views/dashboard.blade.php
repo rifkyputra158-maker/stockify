@@ -114,7 +114,7 @@
     <!-- Grafik Stok per Kategori & Aktivitas Pengguna Terbaru -->
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-6">
         <div class="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
-            <h2 class="text-sm font-semibold text-gray-700 mb-4">Grafik Stok Barang per Kategori</h2>
+            <h2 class="text-sm font-semibold text-gray-700 mb-4">Grafik Barang Masuk vs Keluar per Kategori (Bulan Ini)</h2>
             <canvas id="stockChart" height="200"></canvas>
         </div>
 
