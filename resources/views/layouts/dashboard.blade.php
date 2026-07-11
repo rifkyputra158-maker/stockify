@@ -32,16 +32,19 @@
                 </div>
             </div>
 
-            <div class="flex items-center gap-4">
-                <div class="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-100 text-xs font-medium text-slate-600">
-                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-                    {{ now()->translatedFormat('l, d F Y') }}
-                </div>
 
                 <div class="flex items-center gap-3 pl-4 border-l border-slate-200">
+                 <div class="hidden sm:flex flex-col items-start px-3 py-1.5 rounded-lg bg-slate-100 text-xs font-medium text-slate-600 leading-tight">
+                  <div class="flex items-center gap-2">
+                    <span class="w-1.5 h-1.5 rounded-full bg-blue-600"></span>
+                     {{ now()->translatedFormat('l, d F Y') }}
+                   </div>
+                 <div id="live-clock" class="text-slate-400 font-normal mt-0.5">--:--:--</div>
+                    </div>
                     <div class="flex items-center justify-center w-9 h-9 rounded-full bg-teal-600 text-white font-semibold text-sm">
                         {{ strtoupper(substr(auth()->user()->name, 0, 1)) }}
                     </div>
+                    
                     <div class="hidden sm:block">
                         <p class="text-sm font-semibold text-slate-800 leading-tight">{{ auth()->user()->name }}</p>
                         <p class="text-xs text-slate-500 leading-tight">
@@ -207,5 +210,17 @@
             document.getElementById('sidebar').classList.toggle('-translate-x-full');
         });
     </script>
+
+<script>
+    function updateClock() {
+        const now = new Date();
+        const options = { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false, timeZone: 'Asia/Jakarta' };
+        const time = now.toLocaleTimeString('id-ID', options);
+        const clockEl = document.getElementById('live-clock');
+        if (clockEl) clockEl.textContent = time + ' WIB';
+    }
+    updateClock();
+    setInterval(updateClock, 1000);
+</script>
 </body>
 </html>
