@@ -13,7 +13,7 @@
         <a href="{{ route('products.import.form') }}" class="text-white bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-600 hover:to-orange-700 hover:-translate-y-0.5 hover:shadow-lg transition-all duration-200 font-medium rounded-lg text-sm px-4 py-2.5">
             Import
         </a>
-        <a href="{{ route('products.create') }}" class="text-white bg-gradient-to-r from-teal-600 to-cyan-600 hover:from-teal-700 hover:to-cyan-700 hover:-translate-y-0.5 hover:shadow-lg transition-all duration-200 font-medium rounded-lg text-sm px-4 py-2.5">
+        <a href="{{ route('products.create') }}" class="text-white bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 hover:-translate-y-0.5 hover:shadow-lg transition-all duration-200 font-medium rounded-lg text-sm px-4 py-2.5">
             + Tambah Produk
         </a>
     </div>

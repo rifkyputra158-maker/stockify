@@ -5,7 +5,7 @@
     <div class="mb-4 flex items-center justify-between">
         <h1 class="text-xl font-semibold text-gray-900 dark:text-white">Kategori Produk</h1>
         <a href="{{ route('categories.create') }}"
-   class="text-white bg-gradient-to-r from-teal-600 to-cyan-600 hover:from-teal-700 hover:to-cyan-700 hover:-translate-y-0.5 hover:shadow-lg transition-all duration-200 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
+   class="text-white bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 hover:-translate-y-0.5 hover:shadow-lg transition-all duration-200 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
     + Tambah Kategori
 </a>
     </div>
