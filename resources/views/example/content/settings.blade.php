@@ -332,7 +332,7 @@
                     </div>
                     <div class="col-span-6 sm:col-span-3">
                         <label for="password" class="block mb-2 text-sm font-medium text-gray-900">New password</label>
-                        <input data-popover-target="popover-password" data-popover-placement="bottom" type="password" id="password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="••••••••" required>
+                        <input data-popover-target="popover-password" data-popover-placement="bottom" type="password" id="password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-teal-500 focus:border-teal-500 block w-full p-2.5" placeholder="••••••••" required>
                         <div data-popover id="popover-password" role="tooltip" class="absolute z-10 invisible inline-block text-sm font-light text-gray-500 transition-opacity duration-300 bg-white border border-gray-200 rounded-lg shadow-sm opacity-0 w-72">
                             <div class="p-3 space-y-2">
                                 <h3 class="font-semibold text-gray-900">Must have at least 6 characters</h3>
