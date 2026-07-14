@@ -7,7 +7,7 @@
         <h1 class="text-2xl font-bold text-gray-900">Produk</h1>
     </div>
     <div class="flex gap-2">
-        <a href="{{ route('products.export') }}" class="text-white bg-green-700 hover:bg-emerald-700 font-medium rounded-lg text-sm px-4 py-2.5">
+        <a href="{{ route('products.export') }}" class="text-white bg-gradient-to-r from-green-500 to-green-600 hover:from-teal-600 hover:to-green-700 hover:-translate-y-0.5 hover:shadow-lg transition-all duration-200 font-medium rounded-lg text-sm px-4 py-2.5">
             Export
         </a>
         <a href="{{ route('products.import.form') }}" class="text-white bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-600 hover:to-orange-700 hover:-translate-y-0.5 hover:shadow-lg transition-all duration-200 font-medium rounded-lg text-sm px-4 py-2.5">
@@ -80,6 +80,19 @@
                                 <button type="submit" class="font-medium text-rose-600 hover:underline">Hapus</button>
                             </form>
                         </td>
+
+                        <td class="px-6 py-4 font-medium text-gray-900">
+                           {{ $product->name }}
+                         @if ($product->attributes->isNotEmpty())
+                      <div class="mt-1 flex flex-wrap gap-1">
+                          @foreach ($product->attributes as $attr)
+                  <span class="px-2 py-0.5 rounded-full text-xs font-normal bg-gray-100 text-gray-600">
+                    {{ $attr->name }}: {{ $attr->value }}
+                </span>
+                 @endforeach
+                    </div>
+                @endif
+                    </td>
                     </tr>
                 @empty
                     <tr class="bg-white border-b">

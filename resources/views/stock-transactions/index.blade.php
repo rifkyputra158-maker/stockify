@@ -44,7 +44,7 @@
                     <label class="block mb-1 text-sm font-medium text-gray-900">Catatan</label>
                     <input type="text" name="notes" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5">
                 </div>
-                <button type="submit" class="text-white bg-green-700 hover:bg-emerald-700 font-medium rounded-lg text-sm px-5 py-2.5 w-full mt-auto">
+                <button type="submit" class="text-white bg-gradient-to-r from-green-600 to-green-600 hover:from-green-700 hover:to-green-700 hover:-translate-y-0.5 hover:shadow-lg transition-all duration-200 font-medium rounded-lg text-sm px-5 py-2.5 w-full mt-auto">
                     Catat Barang Masuk
                 </button>
             </form>
@@ -102,7 +102,7 @@
                     <label class="block mb-1 text-sm font-medium text-gray-900">Catatan</label>
                     <input type="text" name="notes" placeholder="Opsional" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5">
                 </div>
-                <button type="submit" class="text-white bg-yellow-600 hover:bg-amber-600 font-medium rounded-lg text-sm px-5 py-2.5 w-full mt-auto">
+                <button type="submit" class="text-white bg-gradient-to-r from-yellow-600 to-yellow-600 hover:from-yellow-700 hover:to-yellow-700 hover:-translate-y-0.5 hover:shadow-lg transition-all duration-200 font-medium rounded-lg text-sm px-5 py-2.5 w-full mt-auto">
                     Catat Penyesuaian
                 </button>
             </form>
