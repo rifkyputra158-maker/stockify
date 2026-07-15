@@ -118,6 +118,7 @@
                     <th class="px-6 py-3">Produk</th>
                     <th class="px-6 py-3">Tipe</th>
                     <th class="px-6 py-3">Jumlah</th>
+                    <th class="px-6 py-3">Status</th>
                     <th class="px-6 py-3">Dicatat Oleh</th>
                     <th class="px-6 py-3">Catatan</th>
                 </tr>
@@ -134,21 +135,27 @@
                                 <span class="text-rose-600 font-semibold">Keluar</span>
                             @else
                                 <span class="text-amber-600 font-semibold">Penyesuaian</span>
-                                @if($trx->status === 'rejected')
-                                <span class="px-2 py-0.5 rounded-full text-xs font-medium bg-red-50 text-red-700">Ditolak</span>
-                            @if($trx->rejection_reason)
-                                <p class="text-xs text-gray-400 mt-1">{{ $trx->rejection_reason }}</p>
-                            @endif
-                            @endif
                             @endif
                         </td>
                         <td class="px-6 py-4">{{ $trx->quantity }}</td>
+                        <td class="px-6 py-4">
+                            @if ($trx->status === 'confirmed')
+                                <span class="px-2 py-0.5 rounded-full text-xs font-medium bg-emerald-50 text-emerald-600">Confirmed</span>
+                            @elseif ($trx->status === 'rejected')
+                                <span class="px-2 py-0.5 rounded-full text-xs font-medium bg-red-50 text-red-700">Ditolak</span>
+                                @if($trx->rejection_reason)
+                                    <p class="text-xs text-gray-400 mt-1">{{ $trx->rejection_reason }}</p>
+                                @endif
+                            @else
+                                <span class="px-2 py-0.5 rounded-full text-xs font-medium bg-yellow-50 text-amber-600">Menunggu Konfirmasi</span>
+                            @endif
+                        </td>
                         <td class="px-6 py-4">{{ $trx->user->name }}</td>
                         <td class="px-6 py-4">{{ $trx->notes ?? '-' }}</td>
                     </tr>
                 @empty
                     <tr class="bg-white border-b">
-                        <td colspan="6" class="px-6 py-4 text-center text-gray-500">Belum ada transaksi.</td>
+                        <td colspan="7" class="px-6 py-4 text-center text-gray-500">Belum ada transaksi.</td>
                     </tr>
                 @endforelse
             </tbody>

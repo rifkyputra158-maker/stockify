@@ -67,7 +67,10 @@ class StockService
                 $product->decrement('stock', $trx->quantity);
             }
 
-            $trx->update(['status' => 'confirmed']);
+            $trx->update([
+                'status' => 'confirmed',
+                'confirmed_by' => auth()->id(),
+            ]);
 
             return $trx;
         });
@@ -93,13 +96,13 @@ class StockService
         });
     }
 
-    public function reject(int $transactionId, string $reason)
+   public function reject(int $transactionId, string $reason)
 {
     return DB::transaction(function () use ($transactionId, $reason) {
         $trx = StockTransaction::lockForUpdate()->findOrFail($transactionId);
 
         if ($trx->status !== 'pending') {
-            throw ValidationException::withMessages([
+            throw \Illuminate\Validation\ValidationException::withMessages([
                 'status' => 'Transaksi ini sudah diproses sebelumnya.',
             ]);
         }
@@ -112,4 +115,5 @@ class StockService
         return $trx;
     });
 }
+
 }

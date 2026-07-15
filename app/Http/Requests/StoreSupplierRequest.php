@@ -16,7 +16,13 @@ class StoreSupplierRequest extends FormRequest
         return [
             'name' => 'required|string|max:255',
             'address' => 'nullable|string',
-            'phone' => 'nullable|string|max:20',
+            'phone' => 'nullable|regex:/^[0-9+\-\s]+$/|max:20',
         ];
+    }
+    public function messages(): array
+    {
+        return [
+           'phone.regex' => 'Nomor telepon hanya boleh berisi angka.',
+               ];
     }
 }

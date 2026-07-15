@@ -80,7 +80,15 @@
                         @endif
                     </td>
                     <td class="px-6 py-4">{{ $trx->quantity }}</td>
-                    <td class="px-6 py-4">{{ ucfirst($trx->status) }}</td>
+                    <td class="px-6 py-4">
+                        @if($trx->status === 'confirmed')
+                            <span class="px-2 py-0.5 rounded-full text-xs font-medium bg-emerald-50 text-emerald-600">Confirmed</span>
+                        @elseif($trx->status === 'rejected')
+                            <span class="px-2 py-0.5 rounded-full text-xs font-medium bg-red-50 text-red-700">Ditolak</span>
+                        @else
+                            <span class="px-2 py-0.5 rounded-full text-xs font-medium bg-yellow-50 text-amber-600">Menunggu</span>
+                        @endif
+                    </td>
                     <td class="px-6 py-4">{{ $trx->user->name }}</td>
                 </tr>
             @empty

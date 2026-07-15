@@ -68,7 +68,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
             
         } elseif ($user->role === 'staff_gudang') {
             $data['pendingCount'] = \App\Models\StockTransaction::where('status', 'pending')->count();
-            $data['confirmedTodayCount'] = \App\Models\StockTransaction::where('status', 'confirmed')->where('user_id', $user->id)->whereDate('updated_at', today())->count();
+            $data['confirmedTodayCount'] = \App\Models\StockTransaction::where('status', 'confirmed')->where('confirmed_by', $user->id)->whereDate('updated_at', today())->count();
             $data['recentTransactions'] = \App\Models\StockTransaction::with('product')->where('user_id', $user->id)->latest('date')->take(5)->get();
         }
 

@@ -87,7 +87,7 @@ class StockTransactionController extends Controller
             return back()->withErrors($e->errors());
         }
     }
-    public function reject(Request $request, int $id)
+   public function reject(Request $request, int $id)
 {
     $request->validate([
         'rejection_reason' => 'required|string|max:255',
@@ -99,7 +99,7 @@ class StockTransactionController extends Controller
         ActivityLog::record('update', "Menolak transaksi: {$trx->quantity} unit {$trx->product->name} - Alasan: {$request->rejection_reason}");
 
         return redirect()->route('stock-transactions.pending')->with('success', 'Transaksi berhasil ditolak.');
-    } catch (ValidationException $e) {
+    } catch (\Illuminate\Validation\ValidationException $e) {
         return back()->withErrors($e->errors());
     }
 }

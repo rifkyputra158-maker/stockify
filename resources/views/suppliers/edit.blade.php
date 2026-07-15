@@ -27,8 +27,10 @@
 
         <div>
             <label for="phone" class="block mb-1 text-sm font-medium text-gray-900">Telepon</label>
-            <input type="text" name="phone" id="phone" value="{{ old('phone') }}"
-                   class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5">
+            <input type="tel" name="phone" id="phone" value="{{ old('phone', $supplier->phone) }}"
+       pattern="[0-9+\-\s]*" inputmode="numeric" placeholder="08123456789"
+       oninput="this.value = this.value.replace(/[^0-9+\-\s]/g, '')"
+       class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5">
             @error('phone')
                 <p class="mt-1 text-sm text-rose-600">{{ $message }}</p>
             @enderror
